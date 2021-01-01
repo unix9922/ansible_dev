@@ -1,0 +1,13 @@
+- name: install http
+  hosts: main
+  become: true
+  gather_facts: yes
+  tasks:
+  - name: install httpd server on target servers
+    yum: 
+      name: httpd
+      state: latest
+
+     
+
+
