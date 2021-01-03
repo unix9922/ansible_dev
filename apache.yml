@@ -9,9 +9,11 @@
     yum:
       name: httpd
       state: latest
+    when: ansible_distribution == "Centos" 
   
   - name: Install vim pachage
     yum:
       name: vim
       state: latest
+    when: ansible_distribution == "Centos" 
         
