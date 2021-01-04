@@ -3,17 +3,12 @@
 - hosts: all
   become: true
   tasks:
+   - name: Install apache vim package
+     package:
+       name: 
+         - "{{ httpd_package }}"
+         - "{{ vim_package }}"
+       state: latest
+       update_cache: yes
 
- 
-  - name: Install apache package
-    yum:
-      name: httpd
-      state: latest
-    when: ansible_distribution == "Centos"  or ansible_distribution == "Ubuntu"
-  
-  - name: Install vim pachage
-    yum:
-      name: vim
-      state: latest
-    when: ansible_distribution == "Centos" or ansible_distribution == "Red Hat Enterprise Linux"
         
