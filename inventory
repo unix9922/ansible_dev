@@ -1,4 +1,4 @@
-[all]
+[all] 
 192.168.122.51  httpd_package=httpd vim_package=vim
 192.168.122.143   httpd_package=httpd vim_package=vi
 
