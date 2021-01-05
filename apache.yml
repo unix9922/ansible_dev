@@ -6,9 +6,19 @@
    - name: Install apache vim package
      package:
        name: 
-         - "{{ httpd_package }}"
-         - "{{ vim_package }}"
+         - httpd_package
+         - vim_package
        state: latest
        update_cache: yes
+     when: ansible_distribution == "Ubuntu"
 
+   - name: Install apache vim package
+     package:
+       name: 
+         - httpd_package
+         - vim_package
+       state: latest
+       update_cache: yes
+     when: ansible_distribution == "CentOS"
+ 
         
