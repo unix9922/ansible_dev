@@ -59,7 +59,22 @@
        state: latest
      when: ansible_distribution == "CentOS"
 
-         
+   - name: change email address for admin
+     tags: apache,centos,httpd 
+     lineinfile:
+       path: /etc/httpd/conf/httpd.conf
+       regexp: '^ServerAdmin'
+       line: ServerAdmin Somebody@somewhere.net
+     when: ansible_distribution == "CentOS"   
+     register: httpd
+
+   - name: restart httpd (CentOS)
+     tags: apache,entos,httpd
+     service:
+       name: httpd  
+       state: restarted
+     when: httpd.changed
+
 - hosts: db_servers
   become: true
   tasks:
